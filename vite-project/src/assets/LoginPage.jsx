@@ -2,20 +2,25 @@
 
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from "../assets/authActions"
+import { login } from "./authActions"
+import { useNavigate } from 'react-router-dom';
+
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
     const dispatch = useDispatch();
+     const navigate = useNavigate()
 
     const handleLogin = () => {
         const user = { username, password };
         dispatch(login(user));
+        navigate('/home')
     };
 return (
     <div>
-      <h1 style={{color:"red",marginLeft:"600px"}}>LOGIN PAGE</h1>
+      <h1 className="text-red-900 ml-[600px] text-4xl">LOGIN PAGE</h1>
       <input
       style={{backgroundColor:"black",marginLeft:"400px",color:"white"}}
         type="text"
