@@ -35,7 +35,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import store from './assets/store';
 
 import LoginPage from './assets/LoginPage';
-import HomePage from "./assets/HomePage";
+import HomePage from './assets/HomePage';
+import AddSurvey from './assets/AddSurvey';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/survey" element={<AddSurvey/>}/>
         </Routes>
       </Router>
     </Provider>
