@@ -1,274 +1,4 @@
 
-// import React from 'react';
-// import addsurvey from "../assets/addsurvey.png";
-// import { useDispatch } from 'react-redux';
-// import { addSurveyQuestion, submitSurveyResponse } from '../assets/surveyAction';
-
-// function AddSurvey() {
-//   const dispatch = useDispatch();
-//   const [question, setQuestion] = useState('');
-
-//   const handleQuestionChange = (e) => {
-//     setQuestion(e.target.value);
-//   };
-
-//   const handleSubmit = () => {
-//     dispatch(addSurveyQuestion(question));
-//     setQuestion('');
-//   };
-//   return (
-//     <div>
-//         <div className="bg-blue-500 p-6 rounded-lg text-white " style={{width:"100%"}}>
-//           <h1 className="text-5xl">ADD SURVEY CREATOR</h1>
-//           </div>
-//       <img src={addsurvey} className="mx-auto mb-4 w-[300px]" alt="Add Survey"  /> 
-//       <div>
-//         <label className="block text-sm font-medium text-gray-700 mb-2">Question</label>
-//         <div className="max-w-md mx-auto p-4">
-//         <textarea
-//           className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-//           placeholder="Enter your question here"
-//         />
-//         </div>
-//       </div>
-
-//       <div className="text-center mt-4">
-//         <button
-//           type="submit"
-//           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-//         >
-//           Submit
-//         </button>
-//       </div>
-//       <div className="text-center mt-4">
-//         <button
-//           onClick={handleSubmit}
-//           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-//         >
-//           Add Question
-//         </button>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-// export default AddSurvey;
-
-// import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// // import { submitSurveyResponse } from '../assets/surveyAction';
-// import { addSurveyQuestion, submitSurveyResponse } from '../assets/surveyAction';
-
-// import { Link } from 'react-router-dom';
-
-// function AddSurvey() {
-//   const dispatch = useDispatch();
-//   const [response, setResponse] = useState('');
-
-//   const handleResponseChange = (e) => {
-//     setResponse(e.target.value);
-//   };
-
-//   const handleSubmitResponse = () => {
-//     dispatch(submitSurveyResponse(response));
-//     setResponse('');
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         <label className="block text-sm font-medium text-gray-700 mb-2">Response</label>
-//         <div className="max-w-md mx-auto p-4">
-//           <textarea
-//             className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-//             placeholder="Enter your response here"
-//             value={response}
-//             onChange={handleResponseChange}
-//           />
-//         </div>
-//       </div>
-
-//       <div className="text-center mt-4">
-//         <Link to="/results">
-//         <button
-//           onClick={handleSubmitResponse}
-//           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-//         >
-//           Submit Response
-//         </button>
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default AddSurvey;
-
-
-// import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { addSurveyQuestion, submitSurveyResponse } from '../assets/surveyAction';
-// import { Link } from 'react-router-dom';
-
-// function AddSurvey() {
-//   const dispatch = useDispatch();
-//   const [response, setResponse] = useState('');
-
-//   const handleResponseChange = (e) => {
-//     setResponse(e.target.value);
-//   };
-
-//   const handleSubmitResponse = () => {
-//     dispatch(submitSurveyResponse(response));
-//     setResponse('');
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         <label className="block text-sm font-medium text-gray-700 mb-2">Response</label>
-//         <div className="max-w-md mx-auto p-4">
-//           <textarea
-//             className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-//             placeholder="Enter your response here"
-//             value={response}
-//             onChange={handleResponseChange}
-//           />
-//         </div>
-//       </div>
-
-//       <div className="text-center mt-4">
-//         <Link to="/results">
-//           <button
-//             onClick={handleSubmitResponse}
-//             className="bg-blue-500 text-white px-4 py-2 rounded hover-bg-blue-600"
-//           >
-//             Submit Response
-//           </button>
-//         </Link>
-//       </div>
-
-//       {/* Display the entered response */}
-//       <div className="mt-4">
-//         <h2>Your Response:</h2>
-//         <p>{response}</p>
-//       </div>
-//     </div>
-//   );
-// }
-// export default AddSurvey;
-
-// import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { addSurveyQuestion, submitSurveyResponse } from '../assets/surveyAction';
-// import { useNavigate } from 'react-router-dom';
-//  import addsurvey from "../assets/addsurvey.png";
-
-// function AddSurvey() {
-//   const dispatch = useDispatch();
-//   const [response, setResponse] = useState('');
-//   const navigate = useNavigate(); // Correct the placement of useNavigate
-
-//   const handleResponseChange = (e) => {
-//     setResponse(e.target.value);
-//   };
-
-//   const handleSubmitResponse = () => {
-//     console.log('Submitting response:', response);
-//     dispatch(submitSurveyResponse(response));
-//     navigate('/results'); // Use navigate to programmatically go to the /results route
-//     setResponse('');
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         {/* <label className="block text-sm font-medium text-gray-700 mb-2">Response</label> */}
-//         <div className="bg-blue-500 p-6 rounded-lg text-white " style={{width:"100%"}}>           <h1 className="text-5xl">ADD SURVEY CREATOR</h1>           </div>
-//         <img src={addsurvey} className="mx-auto mb-4 w-[300px]" alt="Add Survey"  /> 
-//         <div className="max-w-md mx-auto p-4">
-//           <textarea
-//             className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-//             placeholder="Enter your question here"
-//             value={response}
-//             onChange={handleResponseChange}
-//           />
-//         </div>
-//       </div>
-
-//       <div className="text-center mt-4">
-//         <button
-//           onClick={handleSubmitResponse}
-//           className="bg-blue-500 text-white px-4 py-2 rounded hover-bg-blue-600"
-//         >
-//           Submit Response
-//         </button>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-// export default AddSurvey;
-
-
-
-
-// function AddSurvey() {
-//   const dispatch = useDispatch();
-//   const [response, setResponse] = useState('');
-
-//   const handleResponseChange = (e) => {
-//     const newResponse = e.target.value;
-//     setResponse(newResponse);
-
-//     // Optionally dispatch the response as it's updated
-//     // dispatch(submitSurveyResponse(newResponse));
-//   };
-
-//   const handleSubmitResponse = () => {
-//     dispatch(submitSurveyResponse(response));
-//     setResponse('');
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         <label className="block text-sm font-medium text-gray-700 mb-2">Response</label>
-//         <div className="max-w-md mx-auto p-4">
-//           <textarea
-//             className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
-//             placeholder="Enter your response here"
-//             value={response}
-//             onChange={handleResponseChange}
-//           />
-//         </div>
-//       </div>
-
-//       <div className="text-center mt-4">
-//         {/* <Link to="/results"> */}
-//           <button
-//             onClick={handleSubmitResponse}
-//             className="bg-blue-500 text-white px-4 py-2 rounded hover-bg-blue-600"
-//           >
-//             Submit Response
-//           </button>
-//         {/* </Link> */}
-//       </div>
-
-//       {/* Display the entered response immediately */}
-//       <div className="mt-4">
-//         <h2>Your Response:</h2>
-//         <p>{response}</p>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default AddSurvey;
-
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { submitSurveyResponse } from './surveyAction';
@@ -285,10 +15,12 @@ function AddSurvey() {
   });
   const navigate = useNavigate();
 
-  const handleResponseChange = (e) => {
-    setResponse(e.target.value);
+  const handleResponseChange = (e, field) => {
+    setResponse({
+      ...response,
+      [field]: e.target.value,
+    });
   };
-
   const handleSubmitResponse = () => {
     console.log('Submitting response:', response);
     dispatch(submitSurveyResponse(response));
@@ -308,33 +40,32 @@ function AddSurvey() {
           className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500 "
           placeholder="Enter your question here"
           value={response.question}
-          onChange={handleResponseChange}
+          onChange={(e) => handleResponseChange(e, 'question')}
         />
         <div className="mt-4">
           <p>Options:</p>
           <div className="flex gap-4">
-            {/* <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-              A
-            </button> */}
              <textarea
           className="w-[220px] h-[100px] border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
           placeholder="option A"
           value={response.option1}
-          onChange={handleResponseChange}
+          // onChange={handleResponseChange}
+          onChange={(e) => handleResponseChange(e, 'option1')}
         />
          <textarea
           className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
           placeholder="Option B"
           value={response.option2}
-          onChange={handleResponseChange} 
+          // onChange={handleResponseChange} 
+          onChange={(e) => handleResponseChange(e, 'option2')} 
         />
          <textarea
           className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
           placeholder="Option C"
           value={response.option3}
-          onChange={handleResponseChange}
+          // onChange={handleResponseChange}
+          onChange={(e) => handleResponseChange(e, 'option3')}
         />
-          
           </div>
         </div>
       </div>
