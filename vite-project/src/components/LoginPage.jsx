@@ -85,15 +85,15 @@ const LoginPage = () => {
 
         <div className="mt-6">
           <input
-            className="w-full h-10 px-3 rounded-lg bg-red-700 text-white"
+            className="w-full mt-6 h-10 px-3 rounded-lg bg-red-700 text-blue  p-2"
             type="text"
-            placeholder="Username"
+            placeholder="Email"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <input
             className="w-full h-10 px-3 rounded-lg bg-red-700 text-white"
             type="password"
@@ -101,7 +101,7 @@ const LoginPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <button
           className="w-full mt-6 bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"

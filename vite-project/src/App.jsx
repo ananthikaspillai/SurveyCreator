@@ -32,11 +32,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import store from './assets/store';
+import store from './components/store';
 
-import LoginPage from './assets/LoginPage';
-import HomePage from './assets/HomePage';
-import AddSurvey from './assets/AddSurvey';
+
+import LoginPage from './components/LoginPage';
+import HomePage from './components/HomePage';
+import AddSurvey from './components/AddSurvey';
+import SurveyResults from './components/SurveyResults';
+import Surveys from "./components/Surveys";
 
 function App() {
   return (
@@ -47,6 +50,8 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/survey" element={<AddSurvey/>}/>
+          <Route path="/results" element={<SurveyResults/>}/>
+          <Route path="/surveys" element={<Surveys/>}/>
         </Routes>
       </Router>
     </Provider>
