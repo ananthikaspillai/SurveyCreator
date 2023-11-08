@@ -13,11 +13,7 @@ export const addSurveyQuestion = (question) => {
   };
   
 
-// surveyAction.js
-// export const addSurvey = (survey) => {
-//     return {
-//       type: 'ADD_SURVEY',
-//       payload: survey,
-//     };
-//   };
-  
+
+
+
+

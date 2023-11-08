@@ -14,9 +14,9 @@ function HomePage() {
   };
 
   return (
-    <div className="p-8 space-y-4">
-      <div className="flex items-center">
-        <div className="bg-blue-500 p-4 rounded-lg text-white flex-grow">
+    <div className="w-full ">
+      <div className=" items-center">
+        <div className="bg-blue-800 p-6  text-white ">
           <h1 className="text-5xl">SURVEY CREATOR FORM</h1>
           <p className="mt-[20px]">Welcome, {user.username}</p>
           <div className="flex flex-inline gap-2.5">
@@ -39,40 +39,17 @@ function HomePage() {
       </div>
 
       <div className="flex mr-[16px] ml-[100px]">
-        <div className="w-1/2 mt-[40px]">
-          <h2 className="text-3xl ">List of Surveys</h2>
-          <ul className="list-disc pl-6 mt-[20px] ml-[30px]">
-            <li>
+        <div className=" mt-[80px]">
+           
+        <Link to="/surveys">
+              <button className="text-xl bg-green-500 px-4 py-2 rounded  ml-[0px]">Add Survey</button>
+              </Link>
+          <h2 className="text-xl mt-[60px] ">List of Surveys</h2>
               <Link to="/surveys">
-              <button className="text-xl bg-green-500 px-4 py-2 rounded">Survey 1</button>
+              <button className="text-xl bg-green-500 px-4 py-2 rounded mt-[20px]">Surveys</button>
               </Link>
-              <Link to="/survey">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded ml-[20px]">
-                  Add Question
-                </button>
-              </Link>
-            </li>
-            <li>
-            <Link to="/surveys">
-              <button className="text-xl  bg-green-500 px-4 py-2 rounded mt-[30px]">Survey 2</button></Link>
-              <Link to="/survey">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded ml-[20px]">
-                  Add Question
-                </button>
-              </Link>
-            </li>
-            <li>
-            <Link to="/surveys">
-              <button className="text-xl bg-green-500 px-4 py-2 rounded mt-[30px]">Survey 3</button> </Link>
-              <Link to="/survey">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded ml-[20px]">
-                  Add Question
-                </button>
-              </Link>
-            </li>
-          </ul>
         </div>
-        <img src={home} className="w-[450px] h-37 ml-[0px] " alt="Home" />
+        <img src={home} className="w-[450px] h-37 ml-[190px] " alt="Home" />
       </div>
 
       
