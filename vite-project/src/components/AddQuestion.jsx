@@ -5,7 +5,7 @@ import { submitSurveyResponse } from './surveyAction';
 import { useNavigate } from 'react-router-dom';
 import addsurvey from '../assets/addsurvey.png';
 
-function AddSurvey() {
+function AddQuestion() {
   const dispatch = useDispatch();
   const [response, setResponse] = useState({
     question:'',
@@ -83,7 +83,7 @@ function AddSurvey() {
   );
 }
 
-export default AddSurvey;
+export default AddQuestion;
 
 
 
