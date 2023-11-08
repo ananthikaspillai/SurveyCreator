@@ -33,9 +33,9 @@ function AddSurvey() {
       <div className="bg-blue-800 p-6  text-white  " >
         <h1 className="text-5xl text-center ">ADD SURVEY CREATOR</h1>
       </div>
-      <div style={{display:"inline-flex"}}>
+      <div className="inline-flex">
       <img src={addsurvey} className=" mb-4 w-[300px] ml-[100px] mt-[30px]" alt="Add Survey" />
-      <div className="max-w-md mx-auto p-4" style={{marginTop:"50px",marginLeft:"200px"}}>
+      <div className="max-w-md mx-auto p-4 mt-[50px] ml-[200px]">
         <textarea
           className="w-full h-32 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500 "
           placeholder="Enter your question here"
