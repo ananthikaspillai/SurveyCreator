@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import AddQuestion from './components/AddQuestion';
 import SurveyResults from './components/SurveyResults';
 import Surveys from "./components/Surveys";
+import Addsurvey from './components/AddSurvey';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/survey" element={<AddQuestion/>}/>
           <Route path="/results" element={<SurveyResults/>}/>
           <Route path="/surveys" element={<Surveys/>}/>
+          <Route path="/addsurvey" element={<Addsurvey/>}/>
         </Routes>
       </Router>
     </Provider>

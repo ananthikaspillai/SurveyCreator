@@ -1,95 +1,39 @@
 
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import tools from "../assets/tools.png";
-import { Link } from 'react-router-dom';
 
 function Surveys() {
-  const [data, setData] = useState(null);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8081/surveys')
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8081/surveys');
         setData(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching data:', error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
-  // const handleTitleChange = (event) => {
-  //   setTitle(event.target.value);
-  // };
-
-  // const handleDescriptionChange = (event) => {
-  //   setDescription(event.target.value);
-  // };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newSurvey = {
-      title: title,
-      description: description,
-    };
-    axios.post('http://localhost:8081/surveys1/create', newSurvey)
-      .then((response) => {
-        console.log('Survey created successfully:', response.data);
-      })
-      .catch((error) => {
-        console.error('Error creating survey:', error);
-      });
-    setTitle('');
-    setDescription('');
-  };
-
   return (
-    <div className="bg-white-100 flex flex-col">
-      <h1 className="text-5xl mb-50 mt-30 bg-blue-800  text-white p-6 px-32 py-7  ">Select your Favorite React Tool</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mt-[70px]">
-          <label htmlFor="title" className="text-4xl font-bold text-green-800  mt-[40px] mb-4">Title:</label>
-          {/* <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={handleTitleChange}
-            className="text-xl text-blue-600"
-          /> */}
-        </div>
-        <div>
-          <label htmlFor="description" className="text-4xl font-bold text-blue-800 mb-4 mt-[20px]">Description:</label>
-          {/* <textarea
-            id="description"
-            value={description}
-            onChange={handleDescriptionChange}
-            className="text-xl text-blue-600"
-          /> */}
-        </div>
-        {/* <button type="submit" className="bg-blue-500 text-white p-3 rounded-lg mt-4">
-          Submit
-        </button> */}
-          <Link to="/survey">
-                <button className="bg-blue-500 text-white px-4 py-2 rounded ml-[300px] mb-[100px] ">
-                  Add Question
-                </button>
-              </Link>
-              <button className="bg-red-500 text-white px-4 py-2 rounded ml-[300px] mb-[100px] ">
-                  Delete
-                </button>
-      </form>
-      {data && data.map((survey) => (
-        <div key={survey.id}>
-          <h1 className="text-3xl font-extrabold text-blue-800 mb-8 ml-[260px]">{survey.title}</h1>
-          <h2 className="text-xl text-blue-600">{survey.description}</h2>
-          <img className="w-[180px] ml-[20px]" src={tools} alt="Tools" />
-        </div>
-      ))}
+    <div className="p-8">
+      <h1 className="text-2xl font-semibold mb-4">Surveys</h1>
+      <ul>
+        {data.map((survey, index) => (
+          <li
+            key={index}
+            className="bg-white border rounded p-4 mb-4 shadow-md"
+          >
+            <h2 className="text-xl font-semibold">Title: {survey.title}</h2>
+            <p className="text-gray-700">Description: {survey.description}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default Surveys;
-

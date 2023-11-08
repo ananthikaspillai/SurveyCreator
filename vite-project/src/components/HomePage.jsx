@@ -41,7 +41,7 @@ function HomePage() {
       <div className="flex mr-[16px] ml-[100px]">
         <div className=" mt-[80px]">
            
-        <Link to="/surveys">
+        <Link to="/addsurvey">
               <button className="text-xl bg-green-500 px-4 py-2 rounded  ml-[0px]">Add Survey</button>
               </Link>
           <h2 className="text-xl mt-[60px] ">List of Surveys</h2>
