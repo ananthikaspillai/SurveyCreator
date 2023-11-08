@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function AddSurvey() {
   const [title, setTitle] = useState('');
@@ -108,6 +109,9 @@ function AddSurvey() {
             <button onClick={() => handleEdit(index)} className="bg-green-500 text-white p-2 rounded mr-2">
               Edit
             </button>
+            <Link to="/survey">
+              <button className="bg-green-500 text-white p-2 rounded mr-2">Add question</button>
+              </Link>
             <button onClick={() => handleDelete(survey.id)} className="bg-red-500 text-white p-2 rounded">
               Delete
             </button>
