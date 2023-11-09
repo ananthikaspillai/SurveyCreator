@@ -8,7 +8,7 @@ function AddQuestion({ id }) {
   const [response, setResponse] = useState({
     text: '',
     option: {
-      option1: '',
+      option1: '',  
       option2: '',
       option3: ''
     }

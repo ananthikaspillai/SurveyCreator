@@ -28,7 +28,7 @@ const LoginPage = () => {
 
         <div className="mt-6">
           <input
-            className="w-full mt-6 h-10 px-3 rounded-lg text-center bg-red-700 text-blue  p-2"
+            className="w-full mt-6 h-10 px-3 rounded-lg text-center  bg-white-700 text-blue  p-2"
             type="text"
             placeholder="Email"
             value={email}
