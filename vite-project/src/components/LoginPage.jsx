@@ -22,7 +22,7 @@ const LoginPage = () => {
       <div className="w-96 p-4 bg-white rounded-lg shadow-md">
         <div className="text-center">
           <img src={survey} className="w-48 mx-auto mt-4" alt="Survey Logo" />
-          <h1 className="text-black-500 font-bold font-roboto animate-pulse text-4xl mt-2">"Hey Guys"!</h1>
+          <h1 className="text-black-500 font-bold font-roboto animate-pulse text-4xl mt-2">"Hey Guys!"</h1>
           <p className="text-blue-900 text-3xl mt-2 ">Choose your favourite React Tool</p>
         </div>
 

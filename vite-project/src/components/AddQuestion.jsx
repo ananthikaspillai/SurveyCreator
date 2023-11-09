@@ -44,7 +44,7 @@ function AddQuestion({ id }) {
       .post(`http://localhost:8081/surveys/${surveyid}/questions`, response) 
       .then((response) => {
         console.log('Data saved to the database:', response.data);
-        navigate('/results');
+        navigate('/addsurvey');
       })
       .catch((error) => {
         console.error('Error saving data:', error);
