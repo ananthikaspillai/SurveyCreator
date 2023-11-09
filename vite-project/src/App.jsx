@@ -8,7 +8,7 @@ import HomePage from './components/HomePage';
 import AddQuestion from './components/AddQuestion';
 import SurveyResults from './components/SurveyResults';
 import Surveys from "./components/Surveys";
-import Addsurvey from './components/AddSurvey';
+import Addsurvey from "./components/Addsurvey";
 
 function App() {
   return (

@@ -1,28 +1,60 @@
+// authReducer.js
+
+import { LOGIN, LOGOUT } from './authActions';
 
 const initialState = {
-    isLoggedIn: false,
-    user: null,
-  };
+  user: null,
+  isAuthenticated: false,
+};
+
+const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN:
+      return {
+        ...state,
+        user: action.payload,
+        isAuthenticated: true,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        user: null,
+        isAuthenticated: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export default authReducer;
+
+
+
+
+// const initialState = {
+//     isLoggedIn: false,
+//     user: null,
+//   };
   
-  const authReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case 'LOGIN':
-        return {
-          ...state,
-          isLoggedIn: true,
-          user: action.payload,
-        };
-      case 'LOGOUT':
-        return {
-          ...state,
-          isLoggedIn: false,
-          user: null,
-        };
-      default:
-        return state;
-    }
-  };
+//   const authReducer = (state = initialState, action) => {
+//     switch (action.type) {
+//       case 'LOGIN':
+//         return {
+//           ...state,
+//           isLoggedIn: true,
+//           user: action.payload,
+//         };
+//       case 'LOGOUT':
+//         return {
+//           ...state,
+//           isLoggedIn: false,
+//           user: null,
+//         };
+//       default:
+//         return state;
+//     }
+//   };
   
-  export default authReducer;
+//   export default authReducer;
   
   
