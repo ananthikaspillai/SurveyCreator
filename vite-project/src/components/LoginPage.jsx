@@ -12,6 +12,10 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    if (!email || email.length === 0) {
+      alert('Please enter your email.');
+      return; 
+    }
     const user = { email };
     dispatch(login(user));
     navigate('/home');
@@ -26,13 +30,13 @@ const LoginPage = () => {
           <p className="text-blue-900 text-3xl mt-2 ">Choose your favourite Technologies</p>
         </div>
         <div className="mt-6">
-      <input
-        className="w-full mt-6 h-10 px-3 rounded-lg text-center bg-white-700 text-blue p-2 border border-black"
-        type="text"
-        placeholder="Email"
-       value={email}
-       onChange={(e) => setEmail(e.target.value)}
-/>
+          <input
+            className="w-full mt-6 h-10 px-3 rounded-lg text-center bg-white-700 text-blue p-2 border border-black"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <button
           className="w-full mt-6 bg-blue-500 transition-transform transform hover:scale-105 text-white p-2 rounded-lg hover-bg-blue-600"
