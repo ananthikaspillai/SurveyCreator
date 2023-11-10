@@ -58,7 +58,7 @@ function AddQuestion({ id }) {
      
         <div className="mb-4">
 
-          <h1 className="text-2xl mb-3 font-bold text-gray-700">ADD SURVEY CREATOR</h1>
+          <h1 className="text-2xl mb-3 font-bold text-gray-700">QUESTION CREATOR</h1>
           <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Enter your question here"
