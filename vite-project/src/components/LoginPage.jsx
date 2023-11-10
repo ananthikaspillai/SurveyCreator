@@ -5,7 +5,7 @@ import { login } from './authActions';
 import { useNavigate } from 'react-router-dom';
 import survey from '../assets/survey.png';
 
-const LoginPage = () => {
+  const LoginPage = () => {
   const [email, setEmail] = useState('');
 
   const dispatch = useDispatch();
