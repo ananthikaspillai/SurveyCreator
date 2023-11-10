@@ -20,7 +20,7 @@ function HomePage() {
           <h1 className="text-5xl">SURVEY CREATOR FORM</h1>
           <p className="mt-[20px]">Welcome, {user.username}</p>
           <div className="flex flex-inline gap-2.5">
-          <div className="" style={{marginLeft:"1000px"}}>
+          <div className=" ml-[1000px]">
          <button className=" text-white px-4 py-2  rounded">
            Home
          </button>
