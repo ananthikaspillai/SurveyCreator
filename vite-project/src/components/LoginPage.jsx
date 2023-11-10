@@ -23,17 +23,16 @@ const LoginPage = () => {
         <div className="text-center">
           <img src={survey} className="w-48 mx-auto mt-4" alt="Survey Logo" />
           <h1 className="text-black-500 font-bold font-roboto animate-pulse text-4xl mt-2">"Hey Guys!"</h1>
-          <p className="text-blue-900 text-3xl mt-2 ">Choose your favourite React Tool</p>
+          <p className="text-blue-900 text-3xl mt-2 ">Choose your favourite Technologies</p>
         </div>
-
         <div className="mt-6">
-          <input
-            className="w-full mt-6 h-10 px-3 rounded-lg text-center  bg-white-700 text-blue  p-2"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+      <input
+        className="w-full mt-6 h-10 px-3 rounded-lg text-center bg-white-700 text-blue p-2 border border-black"
+        type="text"
+        placeholder="Email"
+       value={email}
+       onChange={(e) => setEmail(e.target.value)}
+/>
         </div>
         <button
           className="w-full mt-6 bg-blue-500 transition-transform transform hover:scale-105 text-white p-2 rounded-lg hover-bg-blue-600"
