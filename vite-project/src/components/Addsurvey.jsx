@@ -1,84 +1,96 @@
 
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 function AddSurvey() {
-    const [title, setTitle] = useState('');
-      const [description, setDescription] = useState('');
-      const [surveys, setSurveys] = useState([]);
-      const [editIndex, setEditIndex] = useState(null);
-    
-      const navigate = useNavigate()
-    
-      const handleTitleChange = (event) => {
-        setTitle(event.target.value);
-      };
-    
-      const handleDescriptionChange = (event) => {
-        setDescription(event.target.value);
-      };
-    
-      const handleSave = () => {
-        if (title && description) {
-          if (editIndex !== null) {
-            const updatedSurveys = [...surveys];
-            updatedSurveys[editIndex] = { title, description };
-            setSurveys(updatedSurveys);
-            setEditIndex(null);
-          } else {
-            setSurveys([...surveys, { title, description }]);
-          }
-    
-          axios.post('http://localhost:8081/surveys/create', { title, description })
-            .then((response) => {
-              console.log('Data saved to the database:', response.data);
-              fetchDataFromDatabase();
-            })
-            .catch((error) => {
-              console.error('Error saving data to the database:', error);
-            });
-    
-          setTitle('');
-          setDescription('');
-        }
-      };
-    
-      const fetchDataFromDatabase = () => {
-        axios.get('http://localhost:8081/surveys')
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [surveys, setSurveys] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const handleSave = () => {
+    if (title && description) {
+      if (editIndex !== null) {
+        const updatedSurveys = [...surveys];
+        const surveyIdToUpdate = updatedSurveys[editIndex].id;
+
+        axios
+          .put(`http://localhost:8081/surveys/${surveyIdToUpdate}`, { title, description })
           .then((response) => {
-            setSurveys(response.data);
-          })
-          .catch((error) => {
-            console.error('Error fetching data from the database:', error);
-          });
-      };
-    
-      useEffect(() => {
-        fetchDataFromDatabase();
-      }, []);
-    
-      const handleEdit = (index) => {
-        const surveyToEdit = surveys[index];
-        setTitle(surveyToEdit.title);
-        setDescription(surveyToEdit.description);
-        setEditIndex(index);
-      };
-    
-      const handleDelete = (key) => {
-        axios.delete(`http://localhost:8081/surveys/${key}`)
-          .then(() => {
+            console.log('Data updated in the database:', response.data);
             fetchDataFromDatabase();
           })
           .catch((error) => {
-            console.error('Error deleting data from the database:', error);
+            console.error('Error updating data in the database:', error);
           });
-      };
-    
-      const handleAddQuestion = (id) => {
-        navigate(`/survey?surveyid=${id}`)
+
+        setSurveys(updatedSurveys);
+        setEditIndex(null);
+      } else {
+        axios
+          .post('http://localhost:8081/surveys/create', { title, description })
+          .then((response) => {
+            console.log('Data saved to the database:', response.data);
+            fetchDataFromDatabase();
+          })
+          .catch((error) => {
+            console.error('Error saving data to the database:', error);
+          });
       }
-    
+
+      setTitle('');
+      setDescription('');
+    }
+  };
+
+  const fetchDataFromDatabase = () => {
+    axios
+      .get('http://localhost:8081/surveys')
+      .then((response) => {
+        setSurveys(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data from the database:', error);
+      });
+  };
+
+  useEffect(() => {
+    fetchDataFromDatabase();
+  }, []);
+
+  const handleEdit = (index) => {
+    const surveyToEdit = surveys[index];
+    setTitle(surveyToEdit.title);
+    setDescription(surveyToEdit.description);
+    setEditIndex(index);
+  };
+
+  const handleDelete = (key) => {
+    axios
+      .delete(`http://localhost:8081/surveys/${key}`)
+      .then(() => {
+        fetchDataFromDatabase();
+      })
+      .catch((error) => {
+        console.error('Error deleting data from the database:', error);
+      });
+  };
+
+  const handleAddQuestion = (id) => {
+    navigate(`/survey?surveyid=${id}`);
+  };
 
   return (
     <div className="bg-blue-900 min-h-screen flex items-center justify-center ">
@@ -116,7 +128,8 @@ function AddSurvey() {
               <button onClick={() => handleEdit(index)} className="bg-green-500 text-white p-2 rounded mr-2">
                 Edit
               </button>
-              <button className="bg-green-500 text-white p-2 rounded mr-2" 
+              <button
+                className="bg-green-500 text-white p-2 rounded mr-2"
                 onClick={() => handleAddQuestion(survey.id)}
               >
                 Add question
@@ -133,3 +146,4 @@ function AddSurvey() {
 }
 
 export default AddSurvey;
+
