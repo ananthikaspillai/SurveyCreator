@@ -10,17 +10,20 @@ import survey from '../assets/survey.png';
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleLogin = () => {
-    if (!email || email.length === 0) {
-      alert('Please enter your email.');
-      return; 
-    }
+  
+const handleLogin = () => {
+  if (!email || email.length === 0) {
+    alert('Please enter your email.');
+    return;
+  } else if (email.indexOf('@') === -1 || email.indexOf('@') === 0 || email.indexOf('@') === email.length - 1) {
+    alert('Please enter a valid email.');
+    return;
+  } else {
     const user = { email };
     dispatch(login(user));
     navigate('/home');
-  };
-
+  }
+};
   return (
     <div className="bg-gradient-to-br from-indigo-500 to-teal-500 min-h-screen flex justify-center items-center">
       <div className="w-96 p-4 bg-white rounded-lg shadow-md">
@@ -32,10 +35,10 @@ import survey from '../assets/survey.png';
         <div className="mt-6">
           <input
             className="w-full mt-6 h-10 px-3 rounded-lg text-center bg-white-700 text-blue p-2 border border-black"
-            type="text"
+            type="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)} required
           />
         </div>
         <button
@@ -44,6 +47,7 @@ import survey from '../assets/survey.png';
         >
           Login
         </button>
+        
       </div>
     </div>
   );
