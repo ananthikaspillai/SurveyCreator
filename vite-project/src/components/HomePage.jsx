@@ -20,25 +20,23 @@ function HomePage() {
           <h1 className="text-5xl">SURVEY CREATOR FORM</h1>
           <p className="mt-[20px]">Welcome, {user.username}</p>
           <div className="flex flex-inline gap-2.5">
-   
-      <div className="" style={{marginLeft:"1000px"}}>
-      <button className=" text-white px-4 py-2  rounded">
-        Home
-      </button>
+          <div className="" style={{marginLeft:"1000px"}}>
+         <button className=" text-white px-4 py-2  rounded">
+           Home
+         </button>
       </div>
-      <div>
+     <div>
       <button
         className=" bg-red-500 text-white px-4 py-2   rounded"
         onClick={handleLogout}
       >
-        Logout
+       Logout
       </button>
-      </div>
-      </div>
         </div>
+       </div>
       </div>
-
-      <div className="flex mr-[16px] ml-[100px]">
+    </div>
+   <div className="flex mr-[16px] ml-[100px]">
         <div className=" ">
         <h2 className="text-xl mt-[60px] ">Create new survey :</h2>  
         <Link to="/addsurvey">
@@ -51,9 +49,7 @@ function HomePage() {
         </div>
         <img src={home} className="w-[450px] h-37 ml-[190px] " alt="Home" />
       </div>
-
-      
-    </div>
+ </div>
   );
 }
 export default HomePage;
